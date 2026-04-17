@@ -1,0 +1,21 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        int[] freqArr = new int[26];
+
+        if(s.length() != t.length()) {
+            return false;
+        }
+
+        for(int i=0; i<s.length(); i++) {
+            freqArr[s.charAt(i) - 'a']++;
+            freqArr[t.charAt(i) - 'a']--;
+        }
+
+        for(int i=0; i<freqArr.length; i++) {
+            if(freqArr[i] != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
